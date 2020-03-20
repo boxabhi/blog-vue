@@ -1,5 +1,4 @@
 <template>
-    
       <div class="site-section">
       <div class="container">
         <div class="row">
@@ -15,19 +14,22 @@
 
               <div class="col-md-6">
                 <div class="post-entry-1">
-            <router-link to="/detail">   
-               <a href="post-single.html" >
+            <router-link  to="/detail/1">   
+               <a >
                     <img v-bind:src="latest_blog[0].display_image" 
                      alt="Image" class="img-fluid"></a></router-link>
                   <h2>
-                    <a href="blog-single.html">
-                      {{(latest_blog[0].title).substring(0,70)}}</a></h2>
+                <router-link to="/detail/1">
+                      <a>
+                      {{(latest_blog[0].title).substring(0,70)}}</a> 
+                </router-link>
+                 </h2>
                   <p>
                     {{(latest_blog[0].content).substring(0,400)}}
                   </p>  
                   <div class="post-meta">
                     <span class="d-block"><a href="#">{{latest_blog[0].author}}</a> 
-                    in <a href="#">
+                    in <a>
                       {{latest_blog[0].category}}</a></span>
                     <span class="date-read">{{latest_blog[0].created_at}}
                      <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
@@ -44,7 +46,8 @@
                     <h2><a href="blog-single.html">
                      {{blog.title}}</a></h2>
                     <div class="post-meta">
-                      <span class="d-block"><a href="#">{{blog.author}}</a> in <a href="#">{{blog.category}}</a></span>
+                      <span class="d-block">
+                        <a href="#">{{blog.author}}</a> in <a href="#">{{blog.category}}</a></span>
                       <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
                     </div>
                   </div>
@@ -65,9 +68,10 @@
             <div class="trend-entry d-flex">
               <div class="number align-self-start justify-content">{{blog.id}}</div>
               <div class="trend-contents">
-                <h2 class="justify-content"><a href="blog-single.html">
+                <h2 class="justify-content">
+                   <router-link to="/detail">   <a href="">
                {{ (blog.title)}}
-                  </a></h2>
+                  </a></router-link></h2>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
                   <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>

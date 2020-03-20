@@ -7,7 +7,7 @@
             <div class="row">
               <div class="col-12">
                 <div class="section-title">
-                  <h2>Editor's Pick</h2>
+                  <h2 v-if="latest_blog.length > 0">Editor's Pick</h2>
                 </div>
               </div>
             </div>
@@ -17,32 +17,34 @@
                 <div class="post-entry-1">
             <router-link to="/detail">   
                <a href="post-single.html" >
-                    <img v-bind:src="latest_blog.display_image" 
+                    <img v-bind:src="latest_blog[0].display_image" 
                      alt="Image" class="img-fluid"></a></router-link>
                   <h2>
                     <a href="blog-single.html">
-                      {{(latest_blog.title)}}</a></h2>
+                      {{(latest_blog[0].title).substring(0,70)}}</a></h2>
                   <p>
-                    {{(latest_blog.content)}}
+                    {{(latest_blog[0].content).substring(0,400)}}
                   </p>  
                   <div class="post-meta">
-                    <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-                    <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+                    <span class="d-block"><a href="#">{{latest_blog[0].author}}</a> 
+                    in <a href="#">
+                      {{latest_blog[0].category}}</a></span>
+                    <span class="date-read">{{latest_blog[0].created_at}}
+                     <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
                   </div>
                 </div>
               </div>
 
 
-              
-              <div class="col-md-6">
-                <div class="post-entry-2 d-flex bg-light"  v-for="blog in blogs" v-bind:key="blog.id">
+<div class="col-md-6">
+<div class="post-entry-2 d-flex bg-light"  v-for="blog in latest_blog.slice(0,4)" v-bind:key="blog.id">
                   <div class="thumbnail" 
                   v-bind:style="{ 'background-image': 'url(' + blog.display_image + ')' }"></div>
                   <div class="contents">
                     <h2><a href="blog-single.html">
                      {{blog.title}}</a></h2>
                     <div class="post-meta">
-                      <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                      <span class="d-block"><a href="#">{{blog.author}}</a> in <a href="#">{{blog.category}}</a></span>
                       <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
                     </div>
                   </div>
@@ -59,7 +61,7 @@
               <h2>Trending</h2>
             </div>
 
-<div v-for="blog in blogs" v-bind:key="blog.id">
+<div v-for="blog in latest_blog.slice(0,4)" v-bind:key="blog.id">
             <div class="trend-entry d-flex">
               <div class="number align-self-start justify-content">{{blog.id}}</div>
               <div class="trend-contents">
@@ -92,7 +94,7 @@ export default {
     name : 'Top',
     data(){
       return {
-        latest_blog : {},
+        latest_blog : [],
         promoted_blog : {
           "id": 1,
 "title": "Chatores in Lucknow, listen up! ​ Plan your next evening hangout here at Ravi Batashe Wale in Chowk",
@@ -117,21 +119,6 @@ export default {
 "special_meaning": "1",
 "created_at": "2020-03-19 10:59:52",
 "updated_at": "2020-03-19 10:59:52",
-},
-{
-"id": "2",
-"title" : "In a first, KNK Salon & Academy in Lucknow, is setting 'semi-permanent makeup' goals in the city",
-"content" : "KNK Salon and Academy, popularly known as Kuts 'n' Kolors, has been a trendsetter since its inception in Lucknow. They offer contemporary makeup and stellar hair services to all and their cordial hospitality paired with a swanky studio space, seals the deal. A family-owned brand led by two generations of professional beauty artists who have been certified from various countries, KNK has yet again come risen in the forefront with their top-notch and one of its kind semi-permanent makeup facilities.  About Micropigmentation & Microblading   KNK has put semi-permanent makeup solutions on the table for us and now, looking a certain way according to our preferences isn't a distant dream. This kind of makeup is focused on micropigmentation and microblading which results in flawless and well-pigmented eyebrows. Also known as the eyebrow-tattooing technique, this practice has practically gone viral amidst people who aspire to nail their 'woke up like this' pictures, without any extra hassels.  Micropigmentation is often referred to as ombré brows and this semi-permanent technique, utilizes dots of pigments along the lines of traditional tattooing methods. These small dots allow colour to gradually be built up resulting in a more desirable ombré effect and fuller eyebrows. On the other hand, microblading leaves you with natural eyebrows instead of the shockingly dark ones and this modern technique, simulates individual hair strokes for the desired end results.  Details about the Procedure   Whenever we hear of any facial procedures of this stature, the first question which pops up in our minds is definitely- . Contrary to how it sounds and looks of the equipment used, these semi-permanent makeup procedures are absolutely painless, at least in the hands of these ace artists!  Your eyebrows will need no maintenance and it also promises safe and natural results which last upto 2 years. This permanent makeup procedure takes around 3-4 hours and if you're indulging in it, make sure to drop by again after a month for a compulsory refilling session to complete this course of action. For the entire regime will cost you anywhere between ₹15k-20k, depending on the amount of work your eyebrows will need.  For such purposes, KNK has also laid out an exclusive permanent makeup studio at the basement of their academy and salon building which is an absolute work-of-art- a visual treat to the eyes for sure!  The Artists behind the Art   Experts behind this venture, Poonam Ranjan Chowdhary and Ishitta Chowdhary, have played significant roles in bringing and developing new makeup and hair styling trends in Lucknow over the years. Poonam is a certified cosmotologist who has been running the KNK Makeup Academy for almost a decade now and Ishitta too, is an internationally accredited MUA with a passion towards designing faces. She has even worked backstage for London Fashion Week Spring/Summer Collection 2020 and so, with a lot of expertise under their belts, this duo has been setting new benchmarks consistently.  Knock Knock Kuts 'n' Kolors also offers eyelash extension services, so whatever your beauty requirements are, they're gonna take care of it all and how! Honestly, we can't wait to see what they'll be putting up on the table next. But do take note- if you're opting for any of their such services, do make sure to take an appointment a day prior. If you've any concerns or questions, they're gonna be just a meeting away to address it all.  Check out their website and follow their Instagram, Facebook and YouTube channels for more updates.  Location: Opp. Tiny Tots (A Toy Shop), Mahanagar Crossing, Gol Market Chowraha, Mahanagar, Lucknow",
-"description": "Great beauty shops in Lucknow",
-"slug": "in-a-first,-knk-salon-&-academy-in-lucknow,-is-setting-'semi-permanent-makeup'-goals-in-the-city",
-"display_image": "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1901&q=80",
-"image": "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1901&q=80",
-"author": "Abhijeet",
-"category": "Fashion",
-"popularity": null,
-"special_meaning": "0",
-"created_at": "2020-03-19 11:10:50",
-"updated_at": "2020-03-19 11:10:50"
 },
 {
 "id": "3",
@@ -203,7 +190,7 @@ export default {
       },
       created() {
         this.fetchArticles();
-        this.showBlogs();
+    
       },
       methods : {
      async fetchArticles(){
@@ -213,16 +200,17 @@ export default {
        await fetch(final_url)
          .then(res => res.json())
          .then(data =>{
-     
-         console.log(data)
+           this.latest_blog = data;
+           console.log('Values')
+           this.latest_blog = (JSON.parse(JSON.stringify(this.latest_blog)))
          })
          .catch(err => console.log(err))
       
         },
-        showBlogs(){
-          console.log("Showing blogs ")
-          console.log(this.blogs)
-        }
+
+       
+
+       
       }
     
 }

@@ -9,8 +9,8 @@
               <img src="images/big_img_1.jpg" alt="Image" class="img-fluid">
             </p>  
             <h1 class="mb-4">
-            
-              News.. Needs to Meet Its Audiences Where They Are
+            Hello props
+            {{info}}
             </h1>
             <div class="post-meta d-flex mb-5">
               <div class="bio-pic mr-3">
@@ -219,9 +219,11 @@
 <script>
 export default {
     name : 'Info',
+    props : ['info'],
+
     data(){
       return{
-        props : ['a']
+       
       }
     },
 

@@ -1,7 +1,8 @@
 <template>
   <div class="details">
       <Navbar />
-      <Info :a="a" />
+      <h1>{{id.id}}</h1>
+      <Info :info="info" />
       <Footer />
   </div>
 </template>
@@ -16,7 +17,8 @@ export default {
 
      data(){
        return{
-         a : "abc",
+         id : this.$route.params,
+         info : "This is a information..",
          blog : {
            "id": 3,
 "title": "Netram jalebis in Aminabad have truly stood the test of time & every  Lucknowite can vouch for it!",

@@ -81,7 +81,7 @@
 
 </div>
             <p>
-              <a href="#" class="more">See All Blogs <span class="icon-keyboard_arrow_right"></span></a>
+              <a href="#" class="more">See All trends.. <span class="icon-keyboard_arrow_right"></span></a>
             </p>
 
           </div>

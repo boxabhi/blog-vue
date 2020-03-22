@@ -20,7 +20,7 @@
               </div>
             </div>
 
-          <p class="text-justify">{{blog.content}}</p>
+          <p class="text-justify p-1" style="font-size:18px">{{blog.content}}</p>
 
 
             <div class="pt-5">
@@ -105,7 +105,6 @@ export default {
 
     created(){
      this.fetchAricle()
-    
     },
     methods : {
       fetchAricle(){

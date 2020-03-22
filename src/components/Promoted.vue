@@ -3,7 +3,7 @@
 
     <div class="py-0">
       <div class="container">
-        <div class="half-post-entry d-block d-lg-flex bg-light">
+        <div class="half-post-entry d-block d-lg-flex bg-light" v-if="promoted_blog.length > 0">
           <div class="img-bg"
           
           v-bind:style="{ 'background-image': 'url(' + promoted_blog.display_image + ')' }"

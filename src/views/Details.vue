@@ -1,6 +1,7 @@
 <template>
   <div class="details">
       <Navbar />
+    
       <Info :id="id.id" />
       <Footer />
   </div>

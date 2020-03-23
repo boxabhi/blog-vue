@@ -2,34 +2,41 @@
       <div class="site-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-6" v-if="foods.length > 0">
             <div class="section-title">
               <h2>Food</h2>
             </div>
-            <div class="post-entry-2 d-flex">
-              <div class="thumbnail" style="background-image: url('images/img_v_1.jpg')"></div>
+            <div class="post-entry-2 d-flex" v-for="food in foods.slice(0,3)" v-bind:key="food.id">
+              <div class="thumbnail" v-bind:style="{ 'background-image': 'url(' + food.display_image + ')' }"></div>
               <div class="contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
-                <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
+                <h2><a href="blog-single.html">{{food.title}}</a></h2>
+                <p class="mb-3">
+                  {{(food.content).substring(0,100)}}</p>
                 <div class="post-meta">
-                  <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                  <span class="d-block"><a href="#">{{food.author}}</a> in <a href="#">{{food.category}}</a></span>
                   <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
                 </div>
               </div>
             </div>
           
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6" v-if="fashion.length > 0">
             <div class="section-title">
-              <h2>Business</h2>
+              <h2>Fashion</h2>
             </div>
-            <div class="post-entry-2 d-flex">
-              <div class="thumbnail" style="background-image: url('images/img_v_1.jpg')"></div>
+            <div class="post-entry-2 d-flex" v-for="fash in fashion.slice(0,3)" v-bind:key="fash.id">
+              <div class="thumbnail" v-bind:style="{ 'background-image': 'url(' + fash.display_image + ')' }"></div>
               <div class="contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
-                <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
+                <h2><a href="blog-single.html">
+                  
+                 {{fash.title}}
+                  </a></h2>
+                <p class="mb-3">
+              {{(fash.content).substring(0,100)}}</p>
                 <div class="post-meta">
-                  <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+
+                  <span class="d-block">
+                    <a href="#">{{fash.author}}</a> in <a href="#">{{fash.category}}</a></span>
                   <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
                 </div>
               </div>
@@ -50,25 +57,39 @@ export default {
    
     data(){
       return{
-          foods : this.fetchByCategory("food"),
+          foods : [],
+          fashion : []
       }
     },
     methods :{
-        fetchByCategory(category){
+      async fetchByCategory(){
           var proxy = "https://cors-anywhere.herokuapp.com/";
-         var url = `http://ckclub.in/v2/api/blog/category/${category}`;
+         var url = `http://ckclub.in/v2/api/blog/category/food`;
          var final_url = proxy + url;
-         fetch(final_url)
+         await fetch(final_url)
          .then(response => response.json())
          .then(data =>{
-           console.log(data)
-           return JSON.parse(JSON.stringify(data))
+           this.foods =  data
+           this.foods = JSON.parse(JSON.stringify(this.foods))
+           console.log(this.foods)
          })
-        }
-    },
+        },
+      async fetchFashion() {
+         var proxy = "https://cors-anywhere.herokuapp.com/";
+         var url = `http://ckclub.in/v2/api/blog/category/Fashion`;
+         var final_url = proxy + url;
+         await fetch(final_url)
+         .then(response => response.json())
+         .then(data =>{
+           this.fashion =  data
+           this.fashion = JSON.parse(JSON.stringify(this.fashion))
+      })
+      }
+      },
     created(){
       this.fetchByCategory(),
-      console.log(`This is foods : ${this.foods}`);
+      this.fetchFashion()
+     
     }
 }
 </script>

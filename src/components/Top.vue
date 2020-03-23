@@ -14,7 +14,7 @@
           </div>
           <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-6" >
               <div class="post-entry-1">
                <router-link :to="`/detail/${latest_blog[3].id}`">
                   <a>

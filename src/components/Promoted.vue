@@ -6,15 +6,15 @@
         <div class="half-post-entry d-block d-lg-flex bg-light" v-if="promoted_blog.length > 0">
           <div class="img-bg"
           
-          v-bind:style="{ 'background-image': 'url(' + promoted_blog.display_image + ')' }"
+          v-bind:style="{ 'background-image': 'url(' + promoted_blog[0].display_image + ')' }"
            
            ></div>
           <div class="contents">
             <span class="caption">Best content</span>
             <h2><a href="blog-single.html">
-             {{(promoted_blog.title).substring(0,70)}}</a></h2>
+             {{(promoted_blog[0].title).substring(0,70)}}</a></h2>
             <p class="mb-3">
-              {{(promoted_blog.content).substring(0,350)}}
+              {{(promoted_blog[0].content).substring(0,350)}}
             </p>
             <div class="post-meta">
               <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">Food</a></span>
@@ -44,7 +44,8 @@ export default {
          fetch(final_url)
          .then(response => response.json())
          .then(data => {
-           this.promoted_blog = JSON.parse(JSON.stringify(data[0]));
+           this.promoted_blog = data;
+           this.promoted_blog = JSON.parse(JSON.stringify(this.promoted_blog))
          
            console.log('This is promoted'+this.promoted)
          })

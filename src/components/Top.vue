@@ -16,25 +16,25 @@
 
             <div class="col-md-6" >
               <div class="post-entry-1">
-               <router-link :to="`/detail/${latest_blog[3].id}`">
+               <router-link :to="`/detail/${latest_blog[0].id}`">
                   <a>
-                    <img v-bind:src="latest_blog[3].display_image" :alt="latest_blog[3].slug"
+                    <img v-bind:src="latest_blog[0].display_image" :alt="latest_blog[3].slug"
                      class="img-fluid"></a>
                 </router-link>
                 <h2>
                  <router-link :to="`/detail/${latest_blog[3].id}`">
                     <a>
-                      {{(latest_blog[3].title).substring(0,70)}}</a>
+                      {{(latest_blog[0].title).substring(0,70)}}</a>
                   </router-link>
                 </h2>
                 <p>
-                  {{(latest_blog[3].content).substring(0,400)}}
+                  {{(latest_blog[0].content).substring(0,400)}}
                 </p>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">{{latest_blog[3].author}}</a>
                     in <a>
-                      {{latest_blog[3].category}}</a></span>
-                  <span class="date-read">{{latest_blog[3].created_at}}
+                      {{latest_blog[0].category}}</a></span>
+                  <span class="date-read">{{latest_blog[0].created_at}}
                     <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
                 </div>
               </div>

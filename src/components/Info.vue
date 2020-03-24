@@ -3,7 +3,7 @@
   <div class="site-section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 single-content" v-if="blog.length > 0">
+        <div class="col-lg-8 single-content" >
           <p class="mb-5">
             <img :src="blog.display_image" alt="Image" class="img-fluid">
           </p>
@@ -18,7 +18,9 @@
                   class="icon-star2"></span></span>
             </div>
           </div>
-          <p class="text-justify p-1" style="font-size:18px">{{blog.content}}</p>
+          <p class="text-justify p-1 content" style="font-size:18px" v-html="blog.content">
+        
+            </p>
           <div class="pt-5">
             <p>Categories: <a href="#">Design</a>, <a href="#">Events</a> Tags: <a href="#">#html</a>, <a
                 href="#">#trends</a></p>
@@ -27,11 +29,7 @@
           
 
         </div>
-        <div v-else>
-            <div class="spinner-border" role="status">
-  <span class="sr-only">Loading...</span>
-</div>
-          </div>
+      
 
 
         <div class="col-lg-3 ml-auto">
@@ -98,6 +96,20 @@
     </div>
   </div>
 </template>
+
+<style>
+.image img {
+    height: 450px !important;
+    width : 700px;
+}
+@media only screen and (max-width: 600px) {
+  .image img {
+    margin-top: 25px;
+    height: 200px !important;
+    width : 350px;
+  }
+}
+</style>
 
 <script>
   export default {

@@ -24,7 +24,7 @@ export default {
     },
       methods :{
         fetchCategory(){
-         var proxy = "";
+         var proxy = "https://cors-anywhere.herokuapp.com/";
          var url = `http://ckclub.in/v2/api/category/`;
          var final_url = proxy + url;
          fetch(final_url)

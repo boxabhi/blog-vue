@@ -110,9 +110,13 @@
 
 
 <script>
+ import {mapGetters, mapActions} from 'vuex';
+
   export default {
+   
     name: 'Top',
-    
+    computed : mapGetters(['blogs']),
+   
     data() {
       return {
         latest_blog: [],
@@ -140,8 +144,12 @@
     created() {
       this.fetchArticles();
       this.fetchTrending();
+      this.fetchBlogs();
     },
+   
+
     methods: {
+      ...mapActions(['fetchBlogs']),
       async fetchArticles() {
         var proxy = "https://cors-anywhere.herokuapp.com/";
         var url = "http://ckclub.in/v2/api/blog";

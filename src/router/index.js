@@ -51,7 +51,7 @@ router.beforeResolve((to, from, next) => {
   next()
 })
 
-router.afterEach((to, from) => {
+router.afterEach(() => {
   // Complete the animation of the route progress bar.
   NProgress.done()
 })

@@ -21,10 +21,20 @@
           <p class="text-justify p-1 content" style="font-size:18px" v-html="blog.content">
         
             </p>
-          <div class="pt-5">
+
+
+      <div class="container">
+        <h3>Watch the Youtube video</h3>
+        <iframe width="550" height="315" class="embed-responsive-item"
+        src="https://www.youtube.com/embed/tgbNymZ7vqY"  > </iframe>
+      </div>
+
+
+
+          <!-- <div class="pt-5">
             <p>Categories: <a href="#">Design</a>, <a href="#">Events</a> Tags: <a href="#">#html</a>, <a
                 href="#">#trends</a></p>
-          </div>
+          </div> -->
           
           
 

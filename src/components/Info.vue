@@ -2,6 +2,10 @@
 
   <div class="site-section">
     <div class="container">
+
+       <div v-if="!loaded" class="container text-left ">
+          <Spinner></Spinner>
+       </div>
       <div class="row">
         <div class="col-lg-8 single-content" >
           <p class="mb-5">
@@ -25,7 +29,7 @@
 
       <div class="container">
         <h3>Watch the Youtube video</h3>
-        <iframe width="550" height="315" class="embed-responsive-item"
+        <iframe class="embed-responsive-item" height="100"
         src="https://www.youtube.com/embed/tgbNymZ7vqY"  > </iframe>
       </div>
 
@@ -59,42 +63,7 @@
             </div>
           </div>
 
-          <div class="trend-entry d-flex">
-            <div class="number align-self-start">02</div>
-            <div class="trend-contents">
-              <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
-              <div class="post-meta">
-                <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-                <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
-                    class="icon-star2"></span></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="trend-entry d-flex">
-            <div class="number align-self-start">03</div>
-            <div class="trend-contents">
-              <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
-              <div class="post-meta">
-                <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-                <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
-                    class="icon-star2"></span></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="trend-entry d-flex pl-0">
-            <div class="number align-self-start">04</div>
-            <div class="trend-contents">
-              <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
-              <div class="post-meta">
-                <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-                <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
-                    class="icon-star2"></span></span>
-              </div>
-            </div>
-          </div>
-
+         
           <p>
             <a href="#" class="more">See All Popular <span class="icon-keyboard_arrow_right"></span></a>
           </p>
@@ -119,35 +88,36 @@
     width : 350px;
   }
 }
+iframe{
+  border: none;
+}
 </style>
 
 <script>
+import Spinner from 'vue-simple-spinner'
+//import {store} from './store/store'
   export default {
+     components: {
+    Spinner,
+  },
     name: 'Info',
     props: ['id'],
 
     data() {
       return {
         blog: {},
+        loaded : false,
       }
     },
 
     created() {
-      this.fetchAricle()
+     // this.fetchAricle()
+     this.getBlogs()
     },
     methods: {
-      fetchAricle() {
-        var proxy = "https://cors-anywhere.herokuapp.com/";
-        var url = `http://ckclub.in/v2/api/blog/${this.$props.id}`;
-        var final_url = proxy + url;
-        fetch(final_url)
-          .then(response => response.json())
-          .then(data => {
-            this.blog = data;
-            this.blog = JSON.parse(JSON.stringify(this.blog))
+  
+      },
 
-          })
-      }
-    }
   }
+  
 </script>

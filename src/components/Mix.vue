@@ -87,8 +87,8 @@ export default {
       }
       },
     created(){
-      this.fetchByCategory(),
-      this.fetchFashion()
+  // this.fetchByCategory(),
+    //  this.fetchFashion()
      
     }
 }

@@ -27,5 +27,7 @@ export default {
    Mix,
    Footer,
   }
+
+  
 }
 </script>

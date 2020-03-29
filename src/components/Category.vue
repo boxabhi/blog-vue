@@ -1,43 +1,43 @@
 <template>
-      <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none pl-0 d-lg-block">
-                <li class="active">
-             <router-link to="/detail">
-             <a href="" class="nav-link text-left">Home</a></router-link>
-                </li>
-                <li v-for="category in categories" v-bind:key="category.id">
-                  <a href="categories.html" class="nav-link text-left">{{category.category}}</a>
-                </li>
-              
-               </ul>                                                                                                                                                                                                                                                                                         
-            </nav>
-
+  <div>
+    <nav v-if="allCategories.length > 0" class="site-navigation position-relative text-right" role="navigation">
+      <ul class="site-menu main-menu js-clone-nav mr-auto d-none pl-0 d-lg-block">
+        <li class="active">
+          <router-link to="/detail">
+            <a href="" class="nav-link text-left">Home</a></router-link>
+        </li>
+        <li v-for="category in allCategories" v-bind:key="category.id">
+          <a class="nav-link text-left">{{category.category}}</a>
+        </li>
+      </ul>
+    </nav>
+    <div v-else>
+      Loading...
+    </div>
+  </div>
 </template>
 
 <script>
-export default {
-    name : 'Category',
-    data(){
-      return{
-        categories : []
+  import {
+    mapActions,
+    mapGetters
+  } from 'vuex';
+  export default {
+    name: 'Category',
+    computed: mapGetters([
+      'allCategories'
+
+    ]),
+    data() {
+      return {
+
       }
     },
-      methods :{
-        fetchCategory(){
-         var proxy = "https://cors-anywhere.herokuapp.com/";
-         var url = `http://ckclub.in/v2/api/category/`;
-         var final_url = proxy + url;
-         fetch(final_url)
-         .then(response => response.json())
-         .then(data =>{
-           this.categories = data
-           this.data = JSON.parse(JSON.stringify(data))
-           
-         })
-        }
-      },
-    created(){
-      this.fetchCategory()
+    methods: {
+      ...mapActions(['fetchCategories']),
+    },
+    created() {
+      this.fetchCategories();
     }
-}
+  }
 </script>

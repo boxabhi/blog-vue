@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import NProgress from 'nprogress'
+
 require('@/assets/css/bootstrap.min.css')
 require('@/assets/css/ui.css')
 require('@/assets/css/owl.carousel.min.css')

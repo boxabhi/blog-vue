@@ -32,16 +32,16 @@
             <h5 class="text-uppercase"><b>Social Links</b></h5>
             <div class="d-flex mb-5 mt-2">
               <div class="bg-secondary  p-3 m-1">
-               <a href="" class="text-white"> <i class="fab fa-facebook"></i></a>
+               <a href="https://www.facebook.com/" class="text-white"> <i class="fab fa-facebook"></i></a>
               </div>
               <div class="bg-info text-white p-3 m-1">
-               <a href="" class="text-white">  <i class="fab fa-facebook-f"></i></a>
+               <a href="https://www.facebook.com/cricketacademyofpathanslucknow/" class="text-white">  <i class="fab fa-facebook-f"></i></a>
               </div>
               <div class="bg-danger text-white p-3 m-1">
-               <a href="" class="text-white">  <i class="fab fa-youtube"></i></a>
+               <a href="https://www.youtube.com/" class="text-white">  <i class="fab fa-youtube"></i></a>
               </div>
               <div class="bg-primary text-white p-3 m-1">
-                <a href="" class="text-white"> <i class="fab fa-youtube"></i></a>
+                <a href="https://www.youtube.com/" class="text-white"> <i class="fab fa-youtube"></i></a>
               </div>
             </div>
           </div>

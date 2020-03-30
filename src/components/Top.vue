@@ -51,7 +51,7 @@
                   <h2>
                     <router-link :to="`/detail/${blog.id}`">
                     <a>
-                      {{blog.title}}</a>
+                      {{(blog.title).substring(0,60)}}</a>
                     </router-link> </h2>
                   <div class="post-meta">
                     <span class="d-block">

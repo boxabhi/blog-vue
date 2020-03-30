@@ -45,11 +45,12 @@ const getters  ={
         }
         return []
    },
-   someMethod(){
-    return (value) => {
-       return value;
+   allFood : function(){
+        return state.blogs.filter(blog => blog.category == ('Food' || 'food'))
+    },
+    allFashion : function(){
+        return state.blogs.filter(blog => blog.category == ('Fashion' || 'fashion'))
     }
- }
    
 }
 

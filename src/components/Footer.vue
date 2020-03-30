@@ -1,10 +1,10 @@
 <template>
-      <div class="site-section subscribe bg-light">
+      <div class="site-section subscribe bg-dark">
       <div class="container">
         <form action="#" class="row align-items-center">
           <div class="col-md-5 mr-auto">
-            <h2>Newsletter Subcribe</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis aspernatur ut at quae omnis pariatur obcaecati possimus nisi ea iste!</p>
+            <h2 class="text-white">City Konnect</h2>
+            <p>Konnecting Lucknow</p>
           </div>
           <div class="col-md-6 ml-auto">
             <div class="d-flex">

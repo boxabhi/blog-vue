@@ -1,8 +1,8 @@
 <template>
 
   <div class="site-section">
+   
     <div class="container">
-
       <div v-if="isLoading" class="container text-left ">
         <Spinner></Spinner>
       </div>
@@ -94,6 +94,8 @@
             </div>
           </div>
 
+          
+
 
           <p>
             <a href="#" class="more">See All Popular <span class="icon-keyboard_arrow_right"></span></a>
@@ -112,10 +114,18 @@
     height: 450px !important;
     width: 700px;
   }
-
+  .wp-block-image img{
+     height: 450px !important;
+    width: 700px;
+  }
   @media only screen and (max-width: 600px) {
     .image img {
       margin-top: 25px;
+      height: 200px !important;
+      width: 350px;
+    }
+    .wp-block-image img{
+       margin-top: 25px;
       height: 200px !important;
       width: 350px;
     }
@@ -148,6 +158,7 @@
       return {
         blog: {},
         isLoading: true,
+        slug : this.$route.params.id,
       }
     },
     computed: mapGetters(['allTrendings']),
@@ -160,7 +171,7 @@
     methods: {
       ...mapActions(['fetchTrendings']),
       async getBlog() {
-        axios.get(`https://cors-anywhere.herokuapp.com/http://ckclub.in/v2/api/blog/${this.id}`)
+        axios.get(`https://cors-anywhere.herokuapp.com/http://ckclub.in/v2/api/blog/${this.slug}`)
           .then(response => {
             this.blog = (response.data)
             this.isLoading = false

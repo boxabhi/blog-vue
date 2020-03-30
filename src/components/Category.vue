@@ -16,9 +16,12 @@
        
       </ul>
     </nav>
+   
     <div v-else>
       Loading...
     </div>
+
+   
   </div>
 </template>
 
@@ -28,11 +31,9 @@
     name: 'Category',
     computed: mapGetters([
       'allCategories'
-
     ]),
     data() {
       return {
-
       }
     },
     methods: {

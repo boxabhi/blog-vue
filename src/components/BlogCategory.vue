@@ -1,24 +1,25 @@
 <template>
     <div>
          <div class="site-section">
-             <div v-if="blogs.length <= 0">
-                 <Spinner></Spinner>
-             </div>
-      <div class="container" v-else>
+             
+          
+      <div class="container" >
         <div class="row">
           <div class="col-lg-9">
             <div class="section-title">
               <span class="caption d-block small">Categories</span>
-              <h2 class="text-uppercase">{{value}}</h2>
+              <h2 class="text-uppercase">{{$route.params.category}}</h2>
               
             </div>
-
-            <div class="post-entry-2 d-flex" v-for="blog in blogs" v-bind:key="blog.id">
+            <div v-if="blogs.length <= 0">
+                 <Spinner></Spinner>
+             </div>
+            <div v-else class="post-entry-2 d-flex" v-for="blog in blogs" v-bind:key="blog.id">
               <div class="thumbnail order-md-2" v-bind:style="{ 'background-image': 'url(' + blog.display_image + ')' }"></div>
               <div class="contents order-md-1 pl-0">
-                <h2><a href="blog-single.html">{{blog.title}}</a></h2>
-                <p class="mb-3">
-                     {{(blog.content).substring(0,200)}}</p>
+                <h2><a href="blog-single.html">{{(blog.title).substring(0,80)}}</a></h2>
+                <p class="mb-3" v-html="(blog.content).substring(0,150)">
+                    </p>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">{{blog.author}}</a> in <a href="#">{{blog.category}}</a></span>
                   <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
@@ -68,9 +69,10 @@
 
 
 <script>
-//import { mapGetters,mapActions } from "vuex";
 import Spinner from 'vue-simple-spinner'
 import axios from 'axios';
+
+
 export default {
     name : 'BlogCategory',
     props: ['category'],
@@ -80,24 +82,33 @@ export default {
     data(){
         return{
             value : this.$props.category.category,
-            blogs : []
+            blogs : [],
+            slug : this.category.category
         }
     },
-    computed: {
-        correctBlogs : function(){
-            return this.blogs.category == this.value
-        }
-
-     },
      methods:{
        async fetchBlogCategory(){
-           const result = await axios.get(`https://cors-anywhere.herokuapp.com/http://ckclub.in/v2/api/blog/category/${this.value}`)
-          this.blogs = (result.data)
-        
+           const result = await axios.get(`https://cors-anywhere.herokuapp.com/http://ckclub.in/v2/api/blog/category/${this.slug}`)
+            console.log(result.data)
+            this.blogs = (result.data)
+        },
+        async newBlog(category){
+          const data = await axios.get(`https://cors-anywhere.herokuapp.com/http://ckclub.in/v2/api/blog/category/${category}`)
+            console.log(data.data)
+            this.blogs = data.data
         }
      },
     created() {
       this.fetchBlogCategory();
-     } 
+      this.newBlog()
+     },
+    watch: {
+    '$route.params.category': function (category) {
+      this.blogs = []
+      console.log('EVent trigger'+category)
+      this.newBlog(category)
+
+    }
+  },
 }
 </script>

@@ -11,8 +11,11 @@
            ></div>
           <div class="contents">
             <span class="caption">Best content</span>
-            <h2><a href="blog-single.html">
-             {{(allPromoted[0].title).substring(0,70)}}</a></h2>
+            <h2>
+               <router-link :to="`/detail/${allPromoted[0].id}`" >
+                 <a href="">
+             {{(allPromoted[0].title).substring(0,70)}}</a>
+               </router-link></h2>
             <p class="mb-3">
               {{(allPromoted[0].content).substring(0,350)}}
             </p>

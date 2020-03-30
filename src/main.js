@@ -16,9 +16,10 @@ import './assets/css/style.css';
 import './assets/css/ui.css';
 
 
-
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 new Vue({
   router,
   store,
+  PulseLoader,
   render: h => h(App)
 }).$mount('#app')

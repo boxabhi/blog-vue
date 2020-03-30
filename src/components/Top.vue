@@ -79,8 +79,11 @@
          <div class="trend-entry d-flex">
               <div class="number align-self-start">{{times + 1}}</div>
               <div class="trend-contents">
-                <h2><a href="blog-single.html">
-                  {{(trending.title).substring(0,100)}}</a></h2>
+                <h2>
+                  <router-link :to="trending.id" ><a href="">
+                  {{(trending.title).substring(0,100)}}</a>
+                  </router-link>
+                  </h2>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">{{trending.author}}</a> in
                    <a href="#">{{trending.category}}</a></span>

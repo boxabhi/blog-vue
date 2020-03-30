@@ -44,7 +44,13 @@ const getters  ={
             return state.promoted
         }
         return []
-   }
+   },
+   someMethod(){
+    return (value) => {
+       return value;
+    }
+ }
+   
 }
 
 const actions = {
@@ -63,7 +69,9 @@ const actions = {
     async fetchPromotedBlog({commit}){
         const promoted = await axios.get('https://cors-anywhere.herokuapp.com/http://ckclub.in/v2/api/promoted')
         commit('setPromoted',promoted.data)
-    }
+    },
+    
+    
 }
 
 

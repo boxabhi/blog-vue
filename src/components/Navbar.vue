@@ -9,7 +9,7 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-    <div class="header-top">
+    <div class="header-top ">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-12 col-lg-6 d-flex">
@@ -24,20 +24,21 @@
           </div>
           <div class="col-12 col-lg-6 ml-auto d-flex">
             <div class="ml-md-auto top-social d-none d-lg-inline-block">
-              <a href="#" class="d-inline-block p-3"><span class="icon-facebook"></span></a>
-                <a href="#" class="d-inline-block p-3"><span class="icon-twitter"></span></a>
-                <a href="#" class="d-inline-block p-3"><span class="icon-instagram"></span></a>
+              <a href="#" class="d-inline-block p-3">
+                <i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="d-inline-block p-3"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="d-inline-block p-3"><i class="fab fa-instagram"></i></a>
             </div>
             <form action="#" class="search-form d-inline-block">
 
               <div class="d-flex">
                 <input type="email" class="form-control" placeholder="Search...">
-                <button type="submit" class="btn btn-secondary" ><span class="icon-search"></span></button>
+                <button type="submit" class="btn btn-secondary" >
+                  <i class="fas fa-search"></i></button>
               </div>
             </form> 
           </div>
           <div class="col-6 d-block d-lg-none text-right">
-            
           </div>
         </div>
       </div>

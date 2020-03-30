@@ -3,10 +3,11 @@
   <div class="site-section">
     <div class="container">
 
-       <div v-if="!loaded" class="container text-left ">
+       <div v-if="isLoading" class="container text-left ">
           <Spinner></Spinner>
        </div>
-      <div class="row">
+       
+      <div class="row" v-else>
         <div class="col-lg-8 single-content" >
           <p class="mb-5">
             <img :src="blog.display_image" alt="Image" class="img-fluid">
@@ -29,16 +30,15 @@
 
       <div class="container">
         <h3>Watch the Youtube video</h3>
-        <iframe class="embed-responsive-item" height="100"
-        src="https://www.youtube.com/embed/tgbNymZ7vqY"  > </iframe>
+        <iframe class="embed-responsive-item pt-3" height="300" width="500"
+        src="https://www.youtube.com/embed/ltzlhAxJr74" frameborder="0" allowfullscreen  > </iframe>
       </div>
 
 
 
-          <!-- <div class="pt-5">
-            <p>Categories: <a href="#">Design</a>, <a href="#">Events</a> Tags: <a href="#">#html</a>, <a
-                href="#">#trends</a></p>
-          </div> -->
+          <div class="pt-5">
+            <p>Categories: <a href="#">{{blog.category}}</a></p>
+          </div>
           
           
 
@@ -51,12 +51,16 @@
             <h2>Popular Posts</h2>
           </div>
 
-          <div class="trend-entry d-flex">
-            <div class="number align-self-start">01</div>
+          <div class="trend-entry d-flex " v-for="(trending,times) in allTrendings.slice(0,5)" v-bind:key="trending.id">
+            <div class="number align-self-start">
+              {{times+1}}
+              </div>
             <div class="trend-contents">
-              <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+              <h2 ><a >
+               {{ (trending.title).substring(0,30) }}
+                </a></h2>
               <div class="post-meta">
-                <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
+                <span class="d-block"><a href="#">{{trending.author}}</a> in <a href="#">{{trending.category}}</a></span>
                 <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
                     class="icon-star2"></span></span>
               </div>
@@ -95,6 +99,9 @@ iframe{
 
 <script>
 import Spinner from 'vue-simple-spinner'
+import axios from 'axios'
+import {mapGetters,mapActions } from 'vuex';
+
 //import {store} from './store/store'
   export default {
      components: {
@@ -106,16 +113,26 @@ import Spinner from 'vue-simple-spinner'
     data() {
       return {
         blog: {},
-        loaded : false,
+        isLoading : true,
       }
     },
-
+    computed : mapGetters (['allTrendings']),
+   
     created() {
-     // this.fetchAricle()
-     this.getBlogs()
+     this.getBlog(),
+     this.fetchTrendings()
+    
     },
     methods: {
-  
+       ...mapActions(['fetchTrendings']),
+        async getBlog() {
+          axios.get(`https://cors-anywhere.herokuapp.com/http://ckclub.in/v2/api/blog/${this.id}`)
+          .then(response => {
+            this.blog = (response.data)
+            this.isLoading = false
+          })
+        },
+        
       },
 
   }

@@ -9,7 +9,10 @@
           <div class="col-md-6 ml-auto">
             <div class="d-flex">
               <input type="email" class="form-control" placeholder="Enter your email">
-              <button type="submit" class="btn btn-secondary" ><span class="icon-paper-plane"></span></button>
+              <button type="submit" class="btn btn-secondary" >
+               <i class="far fa-envelope"></i>
+               
+                </button>
             </div>
           </div>
         </form>

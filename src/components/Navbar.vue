@@ -14,9 +14,9 @@
         <div class="row align-items-center">
           <div class="col-12 col-lg-6 d-flex">
             <router-link to="/">
-              <a href="index.html" class="site-logo">
+              <a href="index.html" class="site-logo d-flex">
                 <img src="https://events.citykonnect.com/public/city/files/img/icon/logo.png">
-                Konnect
+               <h1 class="h4 pt-2"> City Konnect</h1>
               </a>
             </router-link>
             <a href="#" class="ml-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span

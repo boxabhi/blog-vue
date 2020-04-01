@@ -33,7 +33,7 @@
                 <h2><a href="blog-single.html">
                    {{ (fashion.title).substring(0,50) }}
                   </a></h2>
-                <p class="mb-3" v-html="(fashion.content).substring(0,150)">
+                <p class="mb-3 keep-spaces" v-html="(fashion.content).substring(0,150)">
                   </p>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">{{fashion.author}}</a> in <a href="#">{{fashion.category}}</a></span>
@@ -49,6 +49,7 @@
 
 
 </template>
+
 
 <script>
  import { mapGetters} from 'vuex';

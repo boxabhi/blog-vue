@@ -11,13 +11,20 @@
               <h2 class="text-uppercase">{{$route.params.category}}</h2>
               
             </div>
-            <div v-if="blogs.length <= 0">
-                 <Spinner></Spinner>
+            <div v-if="blogs.length <= 0" class="mt-5 pb-5 mb-5">
+                 <Spinner class="mt-5 pt-5"></Spinner>
              </div>
             <div v-else class="post-entry-2 d-flex" v-for="blog in blogs" v-bind:key="blog.id">
               <div class="thumbnail order-md-2" v-bind:style="{ 'background-image': 'url(' + blog.display_image + ')' }"></div>
               <div class="contents order-md-1 pl-0">
-                <h2><a href="blog-single.html">{{(blog.title).substring(0,80)}}</a></h2>
+                <h2>
+                  
+                  <router-link :to="trending.id"><a href="">
+                    
+                    {{(blog.title).substring(0,80)}}
+                    </a>
+                  </router-link>
+                    </h2>
                 <p class="mb-3" v-html="(blog.content).substring(0,150)">
                     </p>
                 <div class="post-meta">
@@ -34,16 +41,25 @@
               <h2>Popular Posts</h2>
             </div>
 
+            <div v-for="(trending,times) in allTrendings.slice(0,4)" v-bind:key="trending.id">
             <div class="trend-entry d-flex">
-              <div class="number align-self-start">01</div>
+              <div class="number align-self-start">{{times + 1}}</div>
               <div class="trend-contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2>
+                  <router-link :to="trending.id"><a href="">
+                      {{(trending.title).substring(0,100)}}</a>
+                  </router-link>
+                </h2>
                 <div class="post-meta">
-                  <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-                  <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+                  <span class="d-block"><a href="#">{{trending.author}}</a> in
+                    <a href="#">{{trending.category}}</a></span>
+                  <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
+                      class="icon-star2"></span></span>
                 </div>
               </div>
             </div>
+
+          </div>
             
             <p>
               <a href="#" class="more">See All Popular <span class="icon-keyboard_arrow_right"></span></a>
@@ -71,7 +87,9 @@
 <script>
 import Spinner from 'vue-simple-spinner'
 import axios from 'axios';
-
+ import {
+    mapGetters,
+  } from 'vuex';
 
 export default {
     name : 'BlogCategory',
@@ -79,6 +97,7 @@ export default {
     components: {
     Spinner,
   },
+  computed: mapGetters(['allTrendings']),
     data(){
         return{
             value : this.$props.category.category,

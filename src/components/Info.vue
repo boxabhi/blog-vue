@@ -3,7 +3,7 @@
   <div class="site-section">
    
     <div class="container">
-      <div v-if="isLoading" class="container text-left ">
+      <div v-if="isLoading" class="container text-left mt-5 mb-5 pb-5">
         <Spinner></Spinner>
       </div>
 

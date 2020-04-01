@@ -13,11 +13,11 @@
                   {{(allBlogs[0].title).substring(0,70)}}</a>
               </router-link>
             </h2>
-            <p class="mb-3">
-              {{(allBlogs[0].content).substring(0,350)}}
+            <p class="mb-3" v-html="(allBlogs[0].content).substring(0,350)">
+              
             </p>
             <div class="post-meta">
-              <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">Food</a></span>
+              <span class="d-block"><a href="#">{{(allBlogs[0].author)}}</a> in <a href="#">Food</a></span>
               <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
                   class="icon-star2"></span></span>
             </div>
@@ -26,8 +26,8 @@
       </div>
     </div>
 
-    <div v-if="allBlogs.length <= 0" class="m-5">
-      <Spinner></Spinner>
+    <div v-if="allBlogs.length <= 0" class="m-5 p-5">
+      <Spinner class="mt-5 mb-5 pb-5"></Spinner>
     </div>
     <div class="container mt-5 pt-3">
       <div class="row" v-if="allBlogs.length > 0">
@@ -130,6 +130,9 @@
 
 </template>
 
+<style>
+.keep-spaces { white-space: pre-wrap; }
+</style>
 
 <script>
   import Spinner from 'vue-simple-spinner'

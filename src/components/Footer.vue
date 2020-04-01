@@ -1,6 +1,6 @@
 <template>
-      <div class="site-section subscribe bg-dark">
-      <div class="container">
+      <div class="site-section subscribe bg-dark mt-5 ">
+      <div class="container mt-5">
         <form action="#" class="row align-items-center">
           <div class="col-md-3 mr-auto">
             <h2 class="text-white">City Konnect</h2>

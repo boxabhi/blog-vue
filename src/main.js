@@ -17,6 +17,7 @@ import './assets/css/ui.css';
 
 
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+import './registerServiceWorker'
 new Vue({
   router,
   store,

@@ -65,26 +65,24 @@
           <div class="pt-5">
             <p>Categories: <a href="#">{{blog.category}}</a></p>
           </div>
-
-
-
         </div>
-
-
 
         <div class="col-lg-3 ml-auto">
           <div class="section-title">
-            <h2>Popular Posts</h2>
+            <h2>Popular Posts..</h2>
           </div>
-
           <div class="trend-entry d-flex " v-for="(trending,times) in allTrendings.slice(0,5)" v-bind:key="trending.id">
             <div class="number align-self-start">
               {{times+1}}
             </div>
             <div class="trend-contents">
-              <h2><a>
+              <h2>
+                <router-link :to="`/detail/${trending.id}`">
+                  <a>
                   {{ (trending.title).substring(0,30) }}
-                </a></h2>
+                </a>
+                </router-link>
+                </h2>
               <div class="post-meta">
                 <span class="d-block"><a href="#">{{trending.author}}</a> in <a
                     href="#">{{trending.category}}</a></span>
@@ -156,7 +154,7 @@
 
     data() {
       return {
-        blog: {},
+        blog: [],
         isLoading: true,
         slug : this.$route.params.id,
       }
@@ -164,14 +162,14 @@
     computed: mapGetters(['allTrendings']),
 
     created() {
-      this.getBlog(),
+      this.getBlog(this.slug),
         this.fetchTrendings()
 
     },
     methods: {
       ...mapActions(['fetchTrendings']),
-      async getBlog() {
-        axios.get(`https://cors-anywhere.herokuapp.com/http://ckclub.in/v2/api/blog/${this.slug}`)
+      async getBlog(slug) {
+        axios.get(`https://cors-anywhere.herokuapp.com/http://ckclub.in/v2/api/blog/${slug}`)
           .then(response => {
             this.blog = (response.data)
             this.isLoading = false
@@ -179,6 +177,15 @@
       },
 
     },
+     watch: {
+    '$route.params.id': function (id) {
+      this.isLoading = true
+      this.getBlog(id)
+      console.log('Event trigger'+id)
+     // this.newBlog(category)
+
+    }
+}
 
   }
 </script>

@@ -11,7 +11,7 @@ const getters  ={
     allBlogs : function() {
         state.blogs = JSON.parse(JSON.stringify(state.blogs))
         if(state.blogs.length == 0){
-            console.log('wrong')
+            //
         }else{
             return state.blogs
         }
@@ -20,9 +20,9 @@ const getters  ={
    allTrendings : function(){
     state.trendings = JSON.parse(JSON.stringify(state.trendings))
        if(state.trendings.length == 0){
-           console.log('Still feching trending')
+         //  console.log('Still feching trending')
        }else{
-           console.log(state.trendings)
+          // console.log(state.trendings)
            return state.trendings
        }
        return []
@@ -30,7 +30,7 @@ const getters  ={
    allCategories : function (){
     state.categories = JSON.parse(JSON.stringify(state.categories))
         if(state.categories.length == 0){
-            console.log('Fetching categories')
+           // console.log('Fetching categories')
         }else{
             return state.categories
         }
@@ -41,7 +41,7 @@ const getters  ={
        if(state.promoted.length == 0){
            console.log('Fetching promoted')
         }else{
-            return state.promoted
+          //  return state.promoted
         }
         return []
    },

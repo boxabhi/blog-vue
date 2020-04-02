@@ -165,8 +165,7 @@
     methods: {
       ...mapActions(['fetchBlogs', 'fetchTrendings']),
       index() {
-        console.log("Trending", this.allTrendings)
-        console.log("Fucking Vue js", this.allBlogs)
+       
       }
     },
 

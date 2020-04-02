@@ -25,6 +25,7 @@ export default {
       Navbar,
       Info,
       Footer,
-  }
+  },
+  
 }
 </script>

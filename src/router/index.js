@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import NProgress from 'nprogress'
 
 require('@/assets/css/bootstrap.min.css')
@@ -12,25 +11,33 @@ require('@/assets/css/jquery.fancybox.min.css')
 require('@/assets/css/bootstrap-datepicker.css')
 require('@/assets/fonts/flaticon/font/flaticon.css')
 require('@/assets/css/aos.css')
+require('@/assets/css/style.css')
+require('@/assets/css/magnific-popup.css')
+
+
 
 
 Vue.use(VueRouter)
+function lazyLoad(view){
+  return() => import(`@/views/${view}.vue`)
+}
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: lazyLoad('Home')
   },
   {
     path: '/about',
     name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: lazyLoad('About')
+   // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
   path :'/detail/:id',
   name: 'Details',
-  component: () => import('../views/Details.vue')
+   component: lazyLoad('Details')
   },
   {
     path :'/category/:category',

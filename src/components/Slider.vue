@@ -11,7 +11,7 @@
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vero obcaecati natus adipisci necessitatibus eius, enim vel sit ad reiciendis. Enim praesentium magni delectus cum, tempore deserunt aliquid quaerat culpa nemo veritatis, iste adipisci excepturi consectetur doloribus aliquam accusantium beatae?</p>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">Food</a></span>
-                  <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+                  <span class="date-read"> <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
                 </div>
               </div>
             </div>
@@ -28,7 +28,7 @@
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vero obcaecati natus adipisci necessitatibus eius, enim vel sit ad reiciendis. Enim praesentium magni delectus cum, tempore deserunt aliquid quaerat culpa nemo veritatis, iste adipisci excepturi consectetur doloribus aliquam accusantium beatae?</p>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">Food</a></span>
-                  <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+                  <span class="date-read"> <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
                 </div>
               </div>
             </div>

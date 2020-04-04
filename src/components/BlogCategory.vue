@@ -29,7 +29,7 @@
                     </p>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">{{blog.author}}</a> in <a href="#">{{blog.category}}</a></span>
-                  <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
+                  <span class="date-read"> <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
                 </div>
               </div>
             </div>

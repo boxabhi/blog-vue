@@ -3,12 +3,12 @@
     <div class="py-0">
       <div class="container">
         <div class="half-post-entry d-block d-lg-flex bg-light" v-if="allBlogs.length > 0">
-          <div class="img-bg" v-bind:style="{ 'background-image': 'url(' + allBlogs[2].display_image + ')' }">
+          <div class="img-bg" v-bind:style="{ 'background-image': 'url(http://ckclub.in/v2/public/images/' + allBlogs[2].display_image + ')' }">
           </div>
           <div class="contents">
             <span class="caption">Best content</span>
             <h2>
-              <router-link :to="`/detail/${allBlogs[0].id}`">
+              <router-link :to="`/detail/${allBlogs[0].slug}`">
                 <a href="">
                   {{(allBlogs[0].title).substring(0,70)}}</a>
               </router-link>
@@ -18,7 +18,7 @@
             </p>
             <div class="post-meta">
               <span class="d-block"><a href="#">{{(allBlogs[0].author)}}</a> in <a href="#">Food</a></span>
-              <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
+              <span class="date-read"> <span class="mx-1">&bullet;</span> 3 min read <span
                   class="icon-star2"></span></span>
             </div>
           </div>
@@ -43,12 +43,12 @@
 
             <div class="col-md-6">
               <div class="post-entry-1">
-                <router-link :to="`/detail/${allBlogs[0].id}`">
+                <router-link :to="`/detail/${allBlogs[0].slug}`">
                   <a>
-                    <img v-bind:src="allBlogs[0].display_image" :alt="allBlogs[3].slug" class="img-fluid"></a>
+                    <img v-bind:src="`http://ckclub.in/v2/public/images/${allBlogs[1].display_image}`" :alt="allBlogs[3].slug" class="img-fluid img-responsive"></a>
                 </router-link>
                 <h2>
-                  <router-link :to="`/detail/${allBlogs[0].id}`">
+                  <router-link :to="`/detail/${allBlogs[0].slug}`">
                     <a>
                       {{(allBlogs[0].title).substring(0,70)}}</a>
                   </router-link>
@@ -69,10 +69,10 @@
 
             <div class="col-md-6">
               <div class="post-entry-2 d-flex bg-light" v-for="blog in allBlogs.slice(0,4)" v-bind:key="blog.id">
-                <div class="thumbnail" v-bind:style="{ 'background-image': 'url(' + blog.display_image + ')' }"></div>
+                <div class="thumbnail" v-bind:style="{ 'background-image': 'url(http://ckclub.in/v2/public/images/' + blog.display_image + ')' }"></div>
                 <div class="contents">
                   <h2>
-                    <router-link :to="`/detail/${blog.id}`">
+                    <router-link :to="`/detail/${blog.slug}`">
                       <a>
                         {{(blog.title).substring(0,60)}}</a>
                     </router-link>
@@ -80,7 +80,7 @@
                   <div class="post-meta">
                     <span class="d-block">
                       <a href="#">{{blog.author}}</a> in <a href="#">{{blog.category}}</a></span>
-                    <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
+                    <span class="date-read"> <span class="mx-1">&bullet;</span> 3 min read <span
                         class="icon-star2"></span></span>
                   </div>
                 </div>
@@ -104,14 +104,14 @@
               <div class="number align-self-start">{{times + 1}}</div>
               <div class="trend-contents">
                 <h2>
-                  <router-link :to="trending.id"><a href="">
+                  <router-link :to="trending.slug"><a href="">
                       {{(trending.title).substring(0,100)}}</a>
                   </router-link>
                 </h2>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">{{trending.author}}</a> in
                     <a href="#">{{trending.category}}</a></span>
-                  <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
+                  <span class="date-read"> <span class="mx-1">&bullet;</span> 3 min read <span
                       class="icon-star2"></span></span>
                 </div>
               </div>

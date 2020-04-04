@@ -10,7 +10,7 @@
       <div class="row" v-else>
         <div class="col-lg-8 single-content">
           <p class="mb-5">
-            <img :src="blog.display_image" alt="Image" class="img-fluid">
+            <img :src="`http://ckclub.in/v2/public/images/${blog.display_image}`" alt="Image" class="img-fluid" style="max-height:500px">
           </p>
           <h1 class="mb-4">
             {{blog.title}}
@@ -19,7 +19,7 @@
 
             <div class="vcard">
               <span class="d-block"><a href="#">{{blog.author}}</a> in <a href="#">{{blog.category}}</a></span>
-              <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
+              <span class="date-read"> <span class="mx-1">&bullet;</span> 3 min read <span
                   class="icon-star2"></span></span>
             </div>
           </div>
@@ -46,8 +46,8 @@
             </div>
           </div>
 
-
-          <div class="container">
+       
+          <div class="container" v-if="blog.youtube_link_one != '#'">
             <h3>Watch the Youtube video</h3>
             <div class="embed-responsive embed-responsive-16by9">
               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ltzlhAxJr74" frameborder="0"
@@ -67,39 +67,7 @@
           </div>
         </div>
 
-        <div class="col-lg-3 ml-auto">
-          <div class="section-title">
-            <h2>Popular Posts..</h2>
-          </div>
-          <div class="trend-entry d-flex " v-for="(trending,times) in allTrendings.slice(0,5)" v-bind:key="trending.id">
-            <div class="number align-self-start">
-              {{times+1}}
-            </div>
-            <div class="trend-contents">
-              <h2>
-                <router-link :to="`/detail/${trending.id}`">
-                  <a>
-                  {{ (trending.title).substring(0,30) }}
-                </a>
-                </router-link>
-                </h2>
-              <div class="post-meta">
-                <span class="d-block"><a href="#">{{trending.author}}</a> in <a
-                    href="#">{{trending.category}}</a></span>
-                <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
-                    class="icon-star2"></span></span>
-              </div>
-            </div>
-          </div>
-
-          
-
-
-          <p>
-            <a href="#" class="more">See All Popular <span class="icon-keyboard_arrow_right"></span></a>
-          </p>
-        </div>
-
+      <Popular />
 
       </div>
 
@@ -138,6 +106,7 @@
 
 <script>
   import Spinner from 'vue-simple-spinner'
+  import Popular from "@/components/Popular.vue"
   import axios from 'axios'
   import {
     mapGetters,
@@ -148,6 +117,7 @@
   export default {
     components: {
       Spinner,
+      Popular
     },
     name: 'Info',
     props: ['id'],
@@ -171,7 +141,8 @@
       async getBlog(slug) {
         axios.get(`https://cors-anywhere.herokuapp.com/http://ckclub.in/v2/api/blog/${slug}`)
           .then(response => {
-            this.blog = (response.data)
+           // console.log(response.data[0])
+            this.blog = (response.data[0])
             this.isLoading = false
           })
       },

@@ -17,6 +17,8 @@
               <a href="index.html" class="site-logo d-flex">
                 <img src="https://events.citykonnect.com/public/city/files/img/icon/logo.png">
                <h1 class="h4 pt-2"> City Konnect</h1>
+                <img src="@/assets/logo.jpeg" class="img-responsive" style="height:45px">
+
               </a>
             </router-link>
             <a href="#" class="ml-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
@@ -46,9 +48,9 @@
         </div>
       </div>
 
- <div class="container"  v-if="isMobile()">
+ <div class="container d-flex"  v-if="isMobile()">
   <nav class="nav d-flex" v-for="category in allCategories" v-bind:key="category.id">
-  <router-link class="nav-link active" :to="`/category/${category.category}`"> 
+  <router-link class="nav-link active text-uppercase" :to="`/category/${category.category}`" v-if="category.category != 'Others'"> 
   {{category.category}}
   </router-link>
 </nav>

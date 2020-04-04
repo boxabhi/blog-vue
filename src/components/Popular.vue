@@ -9,14 +9,14 @@
                 <div class="number align-self-start">{{times + 1}}</div>
                 <div class="trend-contents">
                     <h2>
-                        <router-link :to="`/detail/${trending.id}`"><a>
+                        <router-link :to="`/detail/${trending.slug}`"><a>
                                 {{(trending.title).substring(0,100)}}</a>
                         </router-link>
                     </h2>
                     <div class="post-meta">
                         <span class="d-block"><a href="#">{{trending.author}}</a> in
                             <a href="#">{{trending.category}}</a></span>
-                        <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
+                        <span class="date-read"> <span class="mx-1">&bullet;</span> 3 min read <span
                                 class="icon-star2"></span></span>
                     </div>
                 </div>

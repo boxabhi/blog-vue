@@ -10,7 +10,7 @@
        
         <li v-for="category in allCategories" v-bind:key="category.id">
          <router-link :to="`/category/${category.category}`"> 
-         <a href="" class="nav-link text-left">{{category.category}}</a>
+         <a href="" class="nav-link text-left" v-if="category.category != 'Others'">{{category.category}}</a>
          </router-link>
         </li>
        

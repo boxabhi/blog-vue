@@ -3,22 +3,24 @@
     <div class="py-0">
       <div class="container">
         <div class="half-post-entry d-block d-lg-flex bg-light" v-if="allBlogs.length > 0">
-          <div class="img-bg" v-bind:style="{ 'background-image': 'url(http://ckclub.in/v2/public/images/' + allBlogs[2].display_image + ')' }">
+          <div class="img-bg" v-bind:style="{ 'background-image': 'url(http://ckclub.in/v2/public/images/' + allBlogs[3].display_image + ')' }">
           </div>
           <div class="contents">
             <span class="caption">Best content</span>
             <h2>
-              <router-link :to="`/detail/${allBlogs[0].slug}`">
-                <a href="">
-                  {{(allBlogs[0].title).substring(0,70)}}</a>
+              <router-link :to="`/detail/${allBlogs[3].slug}`">
+                <a href="" class="text-uppercase">
+                  {{(allBlogs[3].title).substring(0,70)}}</a>
               </router-link>
             </h2>
-            <p class="mb-3" v-html="(allBlogs[0].content).substring(0,350)">
+            <p class="mb-3" v-html="(allBlogs[3].content).substring(0,350)">
               
             </p>
             <div class="post-meta">
-              <span class="d-block"><a href="#">{{(allBlogs[0].author)}}</a> in <a href="#">Food</a></span>
-              <span class="date-read"> <span class="mx-1">&bullet;</span> 3 min read <span
+              <span class="d-block"><a href="#">{{(allBlogs[3].author)}}</a> in
+               <a href="#">{{(allBlogs[3].category)}}</a></span>
+              <span class="date-read"> 
+                <span class="mx-1">&bullet;</span> 3 min read <span
                   class="icon-star2"></span></span>
             </div>
           </div>
@@ -43,24 +45,24 @@
 
             <div class="col-md-6">
               <div class="post-entry-1">
-                <router-link :to="`/detail/${allBlogs[0].slug}`">
+                <router-link :to="`/detail/${allBlogs[1].slug}`">
                   <a>
-                    <img v-bind:src="`http://ckclub.in/v2/public/images/${allBlogs[1].display_image}`" :alt="allBlogs[3].slug" class="img-fluid img-responsive"></a>
+                    <img v-bind:src="`http://ckclub.in/v2/public/images/${allBlogs[1].display_image}`" :alt="allBlogs[3].slug" class="img-fluid img-responsive" style="max-height:400px !important"></a>
                 </router-link>
                 <h2>
-                  <router-link :to="`/detail/${allBlogs[0].slug}`">
+                  <router-link :to="`/detail/${allBlogs[1].slug}`">
                     <a>
-                      {{(allBlogs[0].title).substring(0,70)}}</a>
+                      {{(allBlogs[1].title).substring(0,32)}}</a>
                   </router-link>
                 </h2>
-                <p v-html="(allBlogs[0].content).substring(0,400)">
+                <p v-html="(allBlogs[1].content).substring(0,120)">
 
                 </p>
                 <div class="post-meta">
-                  <span class="d-block"><a href="#">{{allBlogs[3].author}}</a>
+                  <span class="d-block"><a href="#">{{allBlogs[1].author}}</a>
                     in <a>
-                      {{allBlogs[0].category}}</a></span>
-                  <span class="date-read">{{allBlogs[0].created_at}}
+                      {{allBlogs[1].category}}</a></span>
+                  <span class="date-read">
                     <span class="mx-1">&bullet;</span> 3 min read <span class="icon-star2"></span></span>
                 </div>
               </div>

@@ -26,10 +26,10 @@
           </div>
           <div class="col-12 col-lg-6 ml-auto d-flex">
             <div class="ml-md-auto top-social d-none d-lg-inline-block">
-              <a href="#" class="d-inline-block p-3">
+              <a href="https://www.facebook.com/Citykonnectlko/?ref=br_rs" class="d-inline-block p-3">
                 <i class="fab fa-facebook-f"></i></a>
               <a href="#" class="d-inline-block p-3"><i class="fab fa-youtube"></i></a>
-              <a href="#" class="d-inline-block p-3"><i class="fab fa-instagram"></i></a>
+              <!-- <a href="#" class="d-inline-block p-3"><i class="fab fa-instagram"></i></a> -->
             </div>
 
           </div>

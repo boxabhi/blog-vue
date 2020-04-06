@@ -41,7 +41,7 @@ const getters  ={
        if(state.promoted.length == 0){
            console.log('Fetching promoted')
         }else{
-          //  return state.promoted
+            return state.promoted
         }
         return []
    },
@@ -50,6 +50,9 @@ const getters  ={
     },
     allFashion : function(){
         return state.blogs.filter(blog => blog.category == ('Fashion' || 'fashion'))
+    },
+    allBusiness : function(){
+        return state.blogs.filter(blog => blog.category == ('Business' || 'business'))
     }
    
 }
